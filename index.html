@@ -6,37 +6,235 @@
 <title>IIT ISM Electronics Engineering Project Proposals</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#f5f7fb;color:#222}
-header{background:#002147;color:#fff;padding:20px 8%;display:flex;justify-content:space-between;align-items:center}
-nav a{color:#fff;text-decoration:none;margin-left:24px}
-.hero{padding:80px 8%;text-align:center;background:#fff}
-.hero h2{font-size:42px;color:#002147;margin-bottom:12px}
-.container{width:90%;max-width:1300px;margin:60px auto}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-.card{background:#fff;padding:30px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
-.card:hover{transform:translateY(-6px)}
-.btn{display:inline-block;background:#0056b3;color:#fff;text-decoration:none;padding:10px 22px;border-radius:8px;margin-top:20px}
-footer{margin-top:60px;background:#002147;color:#fff;text-align:center;padding:24px}
+/* --- IIT ISM Theme Variables --- */
+:root {
+    --ism-blue: #002147;
+    --ism-gold: #F2A900;
+    --ism-light: #f5f7fb;
+    --ism-text: #333333;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:Poppins, sans-serif; }
+
+body { 
+    background: var(--ism-light); 
+    color: var(--ism-text); 
+    position: relative; 
+    z-index: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Watermark */
+body::before {
+    content: "Indian Institute of Technology \A (Indian School of Mines)";
+    white-space: pre-wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/0/05/IIT_ISM_Dhanbad_Logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45vmin; 
+    font-size: 3.5vw; 
+    font-weight: 700;
+    color: var(--ism-blue);
+    opacity: 0.05; /* Subtle integration */
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* Header with Gold Accent */
+header { 
+    background: var(--ism-blue); 
+    color: #fff; 
+    padding: 20px 8%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 4px solid var(--ism-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    margin-left: 28px; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--ism-gold);
+}
+
+/* Hero Section */
+.hero { 
+    padding: 70px 8% 40px; 
+    text-align: center; 
+    background: transparent; 
+}
+
+.hero h2 { 
+    font-size: 46px; 
+    color: var(--ism-blue); 
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Main Container & Cards */
+.container { 
+    width: 90%; 
+    max-width: 1300px; 
+    margin: 40px auto 80px; 
+    flex: 1;
+}
+
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 35px; 
+}
+
+.card { 
+    background: #fff; 
+    padding: 35px 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 24px rgba(0,33,71,.06); 
+    transition: all 0.3s ease; 
+    position: relative; 
+    z-index: 1;
+    border-top: 5px solid var(--ism-gold); /* ISM Gold Accent */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 14px 28px rgba(0,33,71,.12);
+}
+
+.card h3 {
+    color: var(--ism-blue);
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex: 1; /* Pushes the button to the bottom */
+}
+
+/* Interactive Themed Buttons */
+.btn { 
+    display: inline-block; 
+    background: var(--ism-blue); 
+    color: #fff; 
+    text-decoration: none; 
+    padding: 12px 24px; 
+    border-radius: 6px; 
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid var(--ism-blue);
+    transition: all 0.3s ease; 
+}
+
+.btn:hover { 
+    background: var(--ism-gold); 
+    color: var(--ism-blue);
+    border-color: var(--ism-gold);
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(242, 169, 0, 0.3);
+}
+
+/* Footer */
+footer { 
+    background: var(--ism-blue); 
+    color: #fff; 
+    text-align: center; 
+    padding: 30px 20px;
+    border-top: 4px solid var(--ism-gold);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.ism-highlight {
+    color: var(--ism-gold);
+    font-weight: 600;
+    font-size: 16px;
+}
 </style>
 </head>
 <body>
+
 <header>
-<h1>IIT ISM Electronics Engineering</h1>
-<nav><a href="#">Home</a><a href="#">About</a></nav>
+    <h1>IIT ISM Electronics Engineering</h1>
+    <nav>
+        <a href="#">Home</a>
+       
+    </nav>
 </header>
+
 <section class="hero">
-<h2>Project Proposals</h2>
-<p>Browse project proposals across Electronics Engineering research domains.</p>
+    <h2>Project Proposals</h2>
+    <p>Explore cutting-edge research opportunities and proposed technical implementations across the Department of Electronics Engineering.</p>
 </section>
+
 <div class="container">
-<div class="cards">
-<div class="card"><h3>VLSI Design</h3><p>ASIC, FPGA, CMOS, Testing, Neuromorphic Computing.</p><a class="btn" href="VLSI/index.html">Explore</a></div>
-<div class="card"><h3>RF & Microwave Engineering</h3><p>Antennas, SIW, Radar, RF Circuits, Sensors.</p><a class="btn" href="RF-and-Microwave/index.html">Explore</a></div>
-<div class="card"><h3>Communication & Signal Processing</h3><p>Wireless, DSP, AI, 6G, RIS, OTFS, Quantum Communication.</p><a class="btn" href="CSPA/index.html">Explore</a></div>
-<div class="card"><h3>Optical Communication & Integrated Photonics</h3><p>Silicon Photonics, Microwave Photonics, Quantum Photonics.</p><a class="btn" href="Optical-Communication-and-Integrated-Photonics/index.html">Explore</a></div>
+    <div class="cards">
+        <div class="card">
+            <h3>VLSI Design</h3>
+            <p>ASIC, FPGA, CMOS, Testing, Neuromorphic Computing.</p>
+            <a class="btn" href="VLSI/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>RF & Microwave Engineering</h3>
+            <p>Antennas, SIW, Radar, RF Circuits, Sensors.</p>
+            <a class="btn" href="RF-and-Microwave/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>Communication & Signal Processing</h3>
+            <p>Wireless, DSP, AI, 6G, RIS, OTFS, Quantum Communication.</p>
+            <a class="btn" href="CSPA/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>Optical Communication & Photonics</h3>
+            <p>Silicon Photonics, Microwave Photonics, Quantum Photonics.</p>
+            <a class="btn" href="Optical-Communication-and-Integrated-Photonics/index.html">Explore Domain</a>
+        </div>
+    </div>
 </div>
-</div>
-<footer>Department of Electronics Engineering<br>Indian Institute of Technology (ISM) Dhanbad</footer>
+
+<footer>
+    Department of Electronics Engineering<br>
+    <span class="ism-highlight">Indian Institute of Technology (ISM) Dhanbad</span>
+</footer>
+
 </body>
 </html>
