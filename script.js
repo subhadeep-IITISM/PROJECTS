@@ -1,1 +1,0 @@
-function o(i){document.getElementById(i).style.display='block'}function c(i){document.getElementById(i).style.display='none'}function f(){let q=s.value.toLowerCase();document.querySelectorAll('.card').forEach(x=>x.style.display=x.dataset.search.includes(q)?'block':'none')}
