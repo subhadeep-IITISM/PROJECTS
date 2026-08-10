@@ -248,14 +248,13 @@ footer {
     <h1>IIT ISM Electronics Engineering</h1>
     <nav>
         <a href="#">Home</a>
-        <a href="#preferences">Proposals</a>
-        <a href="https://www.iitism.ac.in/electronics-engineering-faculty" target="_blank" rel="noopener noreferrer">Faculty</a>
+        <a href="#preferences">Submit Preferences</a>
     </nav>
 </header>
 
 <section class="hero">
     <h2>Project Proposals</h2>
-    <p>Explore cutting-edge research opportunities and proposed technical implementations across the Department of Electronics Engineering.</p>
+    <p>Click on your specialization and note down the Project Serial Number. You must select a project only from the list of projects under your enrolled specialization (e.g., a VLSI student cannot select a CSPA project).
 </section>
 
 <div class="container">
@@ -286,23 +285,31 @@ footer {
 <section class="form-section" id="preferences">
     <div class="form-container">
         <h3>Submit Your Project Preferences</h3>
-        <p>Enter your institute email and admission number. If you submit again, your previous preferences will be overwritten.</p>
+        <p>
+  Enter your <strong>Admission Number</strong> and <strong>PIN</strong>.
+  Please remember your PIN, as the
+  <strong>same PIN will be required if you need to resubmit or modify your preferences later</strong>.
+</p>
         
         <form id="preferenceForm">
-            <!-- <div class="input-group">
+            <div class="input-group">
                 <label for="studentName">Full Name</label>
                 <input type="text" id="studentName" name="name" required placeholder="e.g., Rahul Kumar">
             </div>
-            
             <div class="input-group">
+                 <label for="studentPin">Create a 4-Digit PIN (Remember this PIN if you want to update later). DO NOT SHARE WITH OTHERS!! </label>
+                <input type="password" id="studentPin" name="pin" required pattern="\d{4}" title="Please enter exactly 4 digits" placeholder="e.g., 1234">
+            </div>
+            
+            <!-- <div class="input-group">
                 <label for="studentEmail">Institute Email ID</label>
                 <input type="email" id="studentEmail" name="email" required placeholder="e.g., student@iitism.ac.in">
-            </div>
+            </div> -->
 
             <div class="input-group">
                 <label for="admissionNo">Admission Number</label>
                 <input type="text" id="admissionNo" name="admissionNo" required placeholder="e.g., 23JE0001">
-            </div> -->
+            </div>
 
             <div class="input-group">
                 <label for="domainSelect">Select Your Domain</label>
@@ -336,10 +343,10 @@ footer {
     
     // Adjusted back to exactly match the maximums you requested originally
     const domainCounts = {
-        'VLSI': 20,
-        'RF': 20,
+        'VLSI': 2,
+        'RF': 2,
         'CSPA': 3, 
-        'OCIP': 22
+        'OCIP': 2
     };
 
     // Listen for when the student changes the domain dropdown
@@ -352,13 +359,13 @@ footer {
 
         // Generate the exact number of required inputs
         if(numberOfPrefs) {
-            let htmlString = '<p style="margin-bottom:15px; color:var(--ism-blue); font-weight:600;">Please enter the Project Code/Name for your preferences below:</p>';
+            let htmlString = '<p style="margin-bottom:15px; color:var(--ism-blue); font-weight:600;">Please enter the Project Serial Number for your preferences below:</p>';
             
             for(let i = 1; i <= numberOfPrefs; i++) {
                 htmlString += `
                     <div class="input-group">
                         <label for="pref${i}">Preference ${i}</label>
-                        <input type="text" id="pref${i}" name="pref${i}" required placeholder="Enter Project Code for Pref ${i}">
+                        <input type="text" id="pref${i}" name="pref${i}" required placeholder="Enter Project Serial Number for Pref ${i}">
                     </div>
                 `;
             }
@@ -373,7 +380,7 @@ footer {
     const btn = document.getElementById('submitBtn');
 
     // !!! IMPORTANT: Replace this with the URL generated from your PERSONAL GMAIL account !!!
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby877VZpLTWaFGj18W-Onvr5PnlRmNppCiH2ZwmLT6aL4PQm50MiTqV9uvNMmBA5TxFzw/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyDKzRwf3g2zTEqOgdzioXY-AEXlJ7Clbjdd-jVTRlWVscsz0GT8WaCZEOE6kxVIwDwng/exec'; 
 
     form.addEventListener('submit', e => {
         e.preventDefault();
