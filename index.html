@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IIT ISM Electronics Engineering Project Proposals</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- IIT ISM Theme Variables --- */
+:root {
+    --ism-blue: #002147;
+    --ism-gold: #F2A900;
+    --ism-light: #f5f7fb;
+    --ism-text: #333333;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:Poppins, sans-serif; }
+
+body { 
+    background: var(--ism-light); 
+    color: var(--ism-text); 
+    position: relative; 
+    z-index: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Watermark */
+body::before {
+    content: "Indian Institute of Technology \A (Indian School of Mines)";
+    white-space: pre-wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/0/05/IIT_ISM_Dhanbad_Logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45vmin; 
+    font-size: 3.5vw; 
+    font-weight: 700;
+    color: var(--ism-blue);
+    opacity: 0.05; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* Header with Gold Accent */
+header { 
+    background: var(--ism-blue); 
+    color: #fff; 
+    padding: 20px 8%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 4px solid var(--ism-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    margin-left: 28px; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--ism-gold);
+}
+
+/* Hero Section */
+.hero { 
+    padding: 70px 8% 40px; 
+    text-align: center; 
+    background: transparent; 
+}
+
+.hero h2 { 
+    font-size: 46px; 
+    color: var(--ism-blue); 
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Main Container & Cards */
+.container { 
+    width: 90%; 
+    max-width: 1300px; 
+    margin: 40px auto 80px; 
+}
+
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 35px; 
+}
+
+.card { 
+    background: #fff; 
+    padding: 35px 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 24px rgba(0,33,71,.06); 
+    transition: all 0.3s ease; 
+    position: relative; 
+    z-index: 1;
+    border-top: 5px solid var(--ism-gold); 
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 14px 28px rgba(0,33,71,.12);
+}
+
+.card h3 {
+    color: var(--ism-blue);
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex: 1; 
+}
+
+/* Interactive Themed Buttons */
+.btn { 
+    display: inline-block; 
+    background: var(--ism-blue); 
+    color: #fff; 
+    text-decoration: none; 
+    padding: 12px 24px; 
+    border-radius: 6px; 
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid var(--ism-blue);
+    transition: all 0.3s ease; 
+}
+
+.btn:hover { 
+    background: var(--ism-gold); 
+    color: var(--ism-blue);
+    border-color: var(--ism-gold);
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(242, 169, 0, 0.3);
+}
+
+/* --- Form Section Styles --- */
+.form-section { 
+    padding: 20px 8% 80px; 
+    flex: 1; 
+}
+
+.form-container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background: #fff; 
+    padding: 40px; 
+    border-radius: 12px; 
+    border-top: 5px solid var(--ism-gold); 
+    box-shadow: 0 8px 24px rgba(0,33,71,.06); 
+    position: relative; 
+    z-index: 1; 
+}
+
+.form-container h3 { 
+    color: var(--ism-blue); 
+    margin-bottom: 10px; 
+    font-size: 24px; 
+    text-align: center; 
+    font-weight: 600;
+}
+
+.form-container p { 
+    text-align: center; 
+    color: #666; 
+    margin-bottom: 30px; 
+    font-size: 14px; 
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--ism-blue); }
+.input-group input, .input-group select { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 15px; 
+    outline: none; 
+    transition: border-color 0.3s; 
+    font-family: Poppins, sans-serif;
+}
+.input-group input:focus, .input-group select:focus { border-color: var(--ism-blue); }
+
+#preferenceForm .btn { width: 100%; border: none; cursor: pointer; font-size: 16px; margin-top: 10px; }
+
+.success-msg { color: #2e7d32; text-align: center; margin-top: 15px; font-weight: 600; }
+.error-msg { color: #c62828; text-align: center; margin-top: 15px; font-weight: 600; }
+
+/* Footer */
+footer { 
+    background: var(--ism-blue); 
+    color: #fff; 
+    text-align: center; 
+    padding: 30px 20px;
+    border-top: 4px solid var(--ism-gold);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.ism-highlight {
+    color: var(--ism-gold);
+    font-weight: 600;
+    font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>IIT ISM Electronics Engineering</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#preferences">Submit Preferences</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Project Proposals</h2>
+    <p>Click on your specialization and note down the Project Serial Number. You must select a project only from the list of projects under your enrolled specialization (e.g., a VLSI student cannot select a CSPA project).</p>
+</section>
+
+<div class="container">
+    <div class="cards">
+        <div class="card">
+            <h3>VLSI Design</h3>
+            <p>ASIC, FPGA, CMOS, Testing, Neuromorphic Computing.</p>
+            <a class="btn" href="VLSI/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>RF & Microwave Engineering</h3>
+            <p>Antennas, SIW, Radar, RF Circuits, Sensors.</p>
+            <a class="btn" href="RF-and-Microwave/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>Communication & Signal Processing</h3>
+            <p>Wireless, DSP, AI, 6G, RIS, OTFS, Quantum Communication.</p>
+            <a class="btn" href="CSPA/index.html">Explore Domain</a>
+        </div>
+        <div class="card">
+            <h3>Optical Communication & Photonics</h3>
+            <p>Silicon Photonics, Microwave Photonics, Quantum Photonics.</p>
+            <a class="btn" href="Optical-Communication-and-Integrated-Photonics/index.html">Explore Domain</a>
+        </div>
+    </div>
+</div>
+
+<section class="form-section" id="preferences">
+    <div class="form-container">
+        <h3>Submit Your Project Preferences</h3>
+        <p>
+            Enter your <strong>Institute Email</strong> and <strong>Admission Number</strong>. 
+            You will need to verify your email with a 6-digit code. The <strong>same email will be required if you need to resubmit or modify your preferences later</strong>.
+        </p>
+        
+        <form id="preferenceForm">
+            <!-- Hidden action field so Apps Script knows which job to do -->
+            <input type="hidden" name="action" id="formAction" value="submitForm">
+
+            <div class="input-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" name="name" required placeholder="e.g., Rahul Kumar">
+            </div>
+            
+            <!-- Email and OTP Section -->
+            <div class="input-group">
+                <label for="studentEmail">Institute Email ID</label>
+                <input type="email" id="studentEmail" name="email" required placeholder="e.g., student@iitism.ac.in" style="margin-bottom: 10px;">
+                
+                <button type="button" class="btn" id="sendOtpBtn" style="width: 100%; margin-top: 5px;">Get Code</button>
+                <p id="otpMsg" style="font-size: 13px; margin-top: 8px; font-weight: 500;"></p>
+            </div>
+
+            <div class="input-group">
+                <label for="studentOtp">Verification Code</label>
+                <input type="text" id="studentOtp" name="otp" required pattern="\d{6}" title="Please enter the 6-digit code sent to your email" placeholder="Enter the 6-digit code">
+            </div>
+
+            <div class="input-group">
+                <label for="admissionNo">Admission Number</label>
+                <input type="text" id="admissionNo" name="admissionNo" required placeholder="e.g., 23JE0001">
+            </div>
+
+            <div class="input-group">
+                <label for="domainSelect">Select Your Domain</label>
+                <select id="domainSelect" name="domain" required>
+                    <option value="" disabled selected>-- Choose Domain --</option>
+                    <option value="VLSI">VLSI Design</option>
+                    <option value="RF">RF & Microwave</option>
+                    <option value="CSPA">Communication & Signal Processing</option>
+                    <option value="OCIP">Optical Communication & Photonics</option>
+                </select>
+            </div>
+
+            <div id="dynamicPreferences"></div>
+
+            <button type="submit" class="btn" id="submitBtn">Submit Preferences</button>
+            <p id="formMessage" style="display:none;"></p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    Department of Electronics Engineering<br>
+    <span class="ism-highlight">Indian Institute of Technology (ISM) Dhanbad</span>
+</footer>
+
+<!-- Dynamic Fields & Google Sheets API Script -->
+<script>
+    // --- 1. Dynamic Form Logic ---
+    const domainSelect = document.getElementById('domainSelect');
+    const dynamicPrefs = document.getElementById('dynamicPreferences');
+    
+    const domainCounts = {
+        'VLSI': 2,
+        'RF': 2,
+        'CSPA': 3, 
+        'OCIP': 2
+    };
+
+    // Listen for when the student changes the domain dropdown
+    domainSelect.addEventListener('change', function() {
+        const selectedDomain = this.value;
+        const numberOfPrefs = domainCounts[selectedDomain];
+        
+        // Clear out any old fields
+        dynamicPrefs.innerHTML = ''; 
+
+        // Generate the exact number of required inputs
+        if(numberOfPrefs) {
+            let htmlString = '<p style="margin-bottom:15px; color:var(--ism-blue); font-weight:600;">Please enter the Project Serial Number for your preferences below:</p>';
+            
+            for(let i = 1; i <= numberOfPrefs; i++) {
+                htmlString += `
+                    <div class="input-group">
+                        <label for="pref${i}">Preference ${i}</label>
+                        <input type="text" id="pref${i}" name="pref${i}" required placeholder="Enter Project Serial Number for Pref ${i}">
+                    </div>
+                `;
+            }
+            // Inject into the HTML
+            dynamicPrefs.innerHTML = htmlString;
+        }
+    });
+
+    // --- 2. Google Sheets Submission Logic & Configuration ---
+    const form = document.getElementById('preferenceForm');
+    const msg = document.getElementById('formMessage');
+    const btn = document.getElementById('submitBtn');
+
+    // !!! IMPORTANT: Make sure this is the URL of your NEW OTP Apps Script deployment !!!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzmMM_rbFKDYtfLRdXBeyGtCmdvUlmYbsHwPoW6HEyF1E_VQ-jWN5VfLWAcyhjpnqHn-w/exec'; 
+
+    // --- 3. OTP Email Logic ---
+    const otpBtn = document.getElementById('sendOtpBtn');
+    const otpMsg = document.getElementById('otpMsg');
+    const emailInput = document.getElementById('studentEmail');
+
+    otpBtn.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        
+        if(!email) {
+            otpMsg.innerText = "Please enter your institute email first.";
+            otpMsg.style.color = "#c62828"; // Red
+            return;
+        }
+        
+        // Optional: Ensure it's an IIT ISM email address
+        if(!email.toLowerCase().endsWith("@iitism.ac.in")) {
+            otpMsg.innerText = "Please use your valid @iitism.ac.in email address.";
+            otpMsg.style.color = "#c62828";
+            return;
+        }
+        
+        otpBtn.innerText = "Sending...";
+        otpMsg.innerText = "";
+        
+        // Create a special payload just for sending the email
+        const otpFormData = new FormData();
+        otpFormData.append('action', 'sendOTP');
+        otpFormData.append('email', email);
+
+        fetch(scriptURL, { method: 'POST', body: otpFormData })
+            .then(response => response.text())
+            .then(text => {
+                if(text === "OTP_SENT") {
+                    otpMsg.innerText = "Code sent! Check your inbox (and spam folder).";
+                    otpMsg.style.color = "#2e7d32"; // Green
+                    otpBtn.innerText = "Code Sent";
+                } else {
+                    otpMsg.innerText = text;
+                    otpMsg.style.color = "#c62828";
+                    otpBtn.innerText = "Get Code";
+                }
+            })
+            .catch(error => {
+                otpMsg.innerText = "Network error. Try again.";
+                otpMsg.style.color = "#c62828";
+                otpBtn.innerText = "Get Code";
+            });
+    });
+
+    // --- 4. Final Form Submission Logic ---
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.innerText = "Submitting...";
+        msg.style.display = "none";
+
+        const formData = new FormData(form);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => response.text())
+            .then(text => {
+                if (text.startsWith("Error")) {
+                    msg.innerText = text;
+                    msg.className = "error-msg";
+                } else {
+                    msg.innerText = "Preferences saved successfully!";
+                    msg.className = "success-msg";
+                    form.reset();
+                    dynamicPrefs.innerHTML = ''; // Clear dynamic fields after success
+                    otpBtn.innerText = "Get Code";
+                    otpMsg.innerText = "";
+                }
+                msg.style.display = "block";
+                btn.innerText = "Submit Preferences";
+            })
+            .catch(error => {
+                msg.innerText = "Network error. Please try again.";
+                msg.className = "error-msg";
+                msg.style.display = "block";
+                btn.innerText = "Submit Preferences";
+            });
+    });
+</script>
+
+</body>
+</html>
