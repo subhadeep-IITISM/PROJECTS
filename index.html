@@ -46,7 +46,7 @@ body::before {
     font-size: 3.5vw; 
     font-weight: 700;
     color: var(--ism-blue);
-    opacity: 0.05; /* Subtle integration */
+    opacity: 0.05; 
     z-index: -1; 
     pointer-events: none; 
 }
@@ -109,7 +109,6 @@ nav a:hover {
     width: 90%; 
     max-width: 1300px; 
     margin: 40px auto 80px; 
-    flex: 1;
 }
 
 .cards { 
@@ -126,7 +125,7 @@ nav a:hover {
     transition: all 0.3s ease; 
     position: relative; 
     z-index: 1;
-    border-top: 5px solid var(--ism-gold); /* ISM Gold Accent */
+    border-top: 5px solid var(--ism-gold); 
     display: flex;
     flex-direction: column;
 }
@@ -148,7 +147,7 @@ nav a:hover {
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 25px;
-    flex: 1; /* Pushes the button to the bottom */
+    flex: 1; 
 }
 
 /* Interactive Themed Buttons */
@@ -172,6 +171,58 @@ nav a:hover {
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(242, 169, 0, 0.3);
 }
+
+/* --- Form Section Styles --- */
+.form-section { 
+    padding: 20px 8% 80px; 
+    flex: 1; 
+}
+
+.form-container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background: #fff; 
+    padding: 40px; 
+    border-radius: 12px; 
+    border-top: 5px solid var(--ism-gold); 
+    box-shadow: 0 8px 24px rgba(0,33,71,.06); 
+    position: relative; 
+    z-index: 1; 
+}
+
+.form-container h3 { 
+    color: var(--ism-blue); 
+    margin-bottom: 10px; 
+    font-size: 24px; 
+    text-align: center; 
+    font-weight: 600;
+}
+
+.form-container p { 
+    text-align: center; 
+    color: #666; 
+    margin-bottom: 30px; 
+    font-size: 14px; 
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--ism-blue); }
+.input-group input, .input-group select { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 15px; 
+    outline: none; 
+    transition: border-color 0.3s; 
+    font-family: Poppins, sans-serif;
+}
+.input-group input:focus, .input-group select:focus { border-color: var(--ism-blue); }
+
+#preferenceForm .btn { width: 100%; border: none; cursor: pointer; font-size: 16px; margin-top: 10px; }
+
+.success-msg { color: #2e7d32; text-align: center; margin-top: 15px; font-weight: 600; }
+.error-msg { color: #c62828; text-align: center; margin-top: 15px; font-weight: 600; }
 
 /* Footer */
 footer { 
@@ -197,7 +248,8 @@ footer {
     <h1>IIT ISM Electronics Engineering</h1>
     <nav>
         <a href="#">Home</a>
-       
+        <a href="#preferences">Proposals</a>
+        <a href="https://www.iitism.ac.in/electronics-engineering-faculty" target="_blank" rel="noopener noreferrer">Faculty</a>
     </nav>
 </header>
 
@@ -231,10 +283,129 @@ footer {
     </div>
 </div>
 
+<section class="form-section" id="preferences">
+    <div class="form-container">
+        <h3>Submit Your Project Preferences</h3>
+        <p>Enter your institute email and admission number. If you submit again, your previous preferences will be overwritten.</p>
+        
+        <form id="preferenceForm">
+            <!-- <div class="input-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" name="name" required placeholder="e.g., Rahul Kumar">
+            </div>
+            
+            <div class="input-group">
+                <label for="studentEmail">Institute Email ID</label>
+                <input type="email" id="studentEmail" name="email" required placeholder="e.g., student@iitism.ac.in">
+            </div>
+
+            <div class="input-group">
+                <label for="admissionNo">Admission Number</label>
+                <input type="text" id="admissionNo" name="admissionNo" required placeholder="e.g., 23JE0001">
+            </div> -->
+
+            <div class="input-group">
+                <label for="domainSelect">Select Your Domain</label>
+                <select id="domainSelect" name="domain" required>
+                    <option value="" disabled selected>-- Choose Domain --</option>
+                    <option value="VLSI">VLSI Design (20 Projects)</option>
+                    <option value="RF">RF & Microwave (20 Projects)</option>
+                    <option value="CSPA">Communication & Signal Processing (25 Projects)</option>
+                    <option value="OCIP">Optical Communication & Photonics (22 Projects)</option>
+                </select>
+            </div>
+
+            <div id="dynamicPreferences"></div>
+
+            <button type="submit" class="btn" id="submitBtn">Submit Preferences</button>
+            <p id="formMessage" style="display:none;"></p>
+        </form>
+    </div>
+</section>
+
 <footer>
     Department of Electronics Engineering<br>
     <span class="ism-highlight">Indian Institute of Technology (ISM) Dhanbad</span>
 </footer>
+
+<!-- Dynamic Fields & Google Sheets API Script -->
+<script>
+    // --- 1. Dynamic Form Logic ---
+    const domainSelect = document.getElementById('domainSelect');
+    const dynamicPrefs = document.getElementById('dynamicPreferences');
+    
+    // Adjusted back to exactly match the maximums you requested originally
+    const domainCounts = {
+        'VLSI': 20,
+        'RF': 20,
+        'CSPA': 3, 
+        'OCIP': 22
+    };
+
+    // Listen for when the student changes the domain dropdown
+    domainSelect.addEventListener('change', function() {
+        const selectedDomain = this.value;
+        const numberOfPrefs = domainCounts[selectedDomain];
+        
+        // Clear out any old fields
+        dynamicPrefs.innerHTML = ''; 
+
+        // Generate the exact number of required inputs
+        if(numberOfPrefs) {
+            let htmlString = '<p style="margin-bottom:15px; color:var(--ism-blue); font-weight:600;">Please enter the Project Code/Name for your preferences below:</p>';
+            
+            for(let i = 1; i <= numberOfPrefs; i++) {
+                htmlString += `
+                    <div class="input-group">
+                        <label for="pref${i}">Preference ${i}</label>
+                        <input type="text" id="pref${i}" name="pref${i}" required placeholder="Enter Project Code for Pref ${i}">
+                    </div>
+                `;
+            }
+            // Inject into the HTML
+            dynamicPrefs.innerHTML = htmlString;
+        }
+    });
+
+    // --- 2. Google Sheets Submission Logic ---
+    const form = document.getElementById('preferenceForm');
+    const msg = document.getElementById('formMessage');
+    const btn = document.getElementById('submitBtn');
+
+    // !!! IMPORTANT: Replace this with the URL generated from your PERSONAL GMAIL account !!!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby877VZpLTWaFGj18W-Onvr5PnlRmNppCiH2ZwmLT6aL4PQm50MiTqV9uvNMmBA5TxFzw/exec'; 
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.innerText = "Submitting...";
+        msg.style.display = "none";
+
+        const formData = new FormData(form);
+
+        // Standard fetch restored so you can read the error/success responses
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => response.text())
+            .then(text => {
+                if (text.startsWith("Error")) {
+                    msg.innerText = text;
+                    msg.className = "error-msg";
+                } else {
+                    msg.innerText = "Preferences saved successfully!";
+                    msg.className = "success-msg";
+                    form.reset();
+                    dynamicPrefs.innerHTML = ''; // Clear dynamic fields after success
+                }
+                msg.style.display = "block";
+                btn.innerText = "Submit Preferences";
+            })
+            .catch(error => {
+                msg.innerText = "Network error. Please try again.";
+                msg.className = "error-msg";
+                msg.style.display = "block";
+                btn.innerText = "Submit Preferences";
+            });
+    });
+</script>
 
 </body>
 </html>
