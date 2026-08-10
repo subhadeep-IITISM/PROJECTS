@@ -127,15 +127,14 @@
             },
             {
                 "id": 2,
-                "title": "Design of Silicon Photonic Ring Modulator for 6G Radio-over-Fiber System",
-                "summary": "This project proposes a compact silicon ring modulator for Radio-over-Fiber System. The project investigates resonance tuning through electro-optic modulation and evaluates modulation bandwidth, extinction ratio, insertion loss, Q-factor, and energy efficiency. High-speed modulation performance will be studied using numerical simulations in Lumerical INTERCONNECT. The compact footprint of the ring modulator makes it suitable for dense photonic integration in future optical communication systems.",
-                "prerequisites": "Ring resonators, silicon photonics, microwave photonics, optical modulation, Lumerical INTERCONNECT, KLayout."
-            },
-            {
-                "id": 3,
                 "title": "Design of Weak Signal Detector Using Quantum Microwave Photonic Technique",
                 "summary": "The Design of a Weak Signal Detector Using Quantum Microwave Photonic Technique aims to develop an advanced sensing system capable of detecting extremely weak microwave signals with high sensitivity, precision, and low noise. Conventional electronic signal detection techniques often face limitations due to thermal noise, electromagnetic interference, and restricted bandwidth, making it difficult to detect signals with very low power levels. Quantum microwave photonics combines the principles of quantum mechanics with microwave photonic technology to overcome these limitations. This technology has significant applications in radar systems, satellite communications, wireless communication networks, electronic warfare, radio astronomy, biomedical sensing, and quantum communication, where reliable detection of extremely weak signals is essential.",
                 "prerequisites": "Fundamentals of Microwave Photonics and Quantum technology, Python/MATLAB programming, and basic knowledge of signal processing and data analysis."
+            },
+            {
+                "id": 3,
+                "title": "Photonic Integrated Circuit for Neuromorphic Computing ",
+                "summary": "This project focuses on the design and simulation of a Photonic Integrated Circuit (PIC) for neuromorphic computing. The proposed architecture will use silicon photonic devices such as Mach–Zehnder interferometers  and phase shifters to implement neural-network operations. The study will investigate optical synapses and neurons for high-speed and energy-efficient information processing.Key performance parameters such as insertion loss, crosstalk, power consumption, latency, and computational efficiency will be evaluated.The proposed PIC architecture aims to provide a scalable and energy-efficient platform for next-generation AI and neuromorphic computing applications.ysis."
             },
             {
                 "id": 4,
@@ -157,142 +156,101 @@
             },
             {
                 "id": 7,
-                "title": "Optical FBG Sensor-Based System for Low-Flying UAV Detection and Localization",
-                "summary": "With the recent increase in the threat posed by unmanned aerial vehicles (UAVs) operating in environments where conventional detection systems such as radar, optical, or acoustic detection are impractical, attention is paid to methods for detecting low-flying UAVs with small radar cross-section (RCS). The most commonly used detection methods are radar detection, which is susceptible to electromagnetic (EM) interference, and optical detection, which is susceptible to weather conditions and line-of-sight. This project will aim to demonstrate the possibility of using passive optical fiber Bragg grating (FBG) as a sensitive element array for low-flying UAV detection and localization. The principle is as follows: an optical signal that propagates through an optical fiber can be modulated due to the FBG reaction on the air pressure caused by a low-flying (even hovering) UAV. As a result, a small target—the drone can be detected and tracked via intensity surge determination.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 8,
                 "title": "Optical Metasurfaces",
                 "summary": "This project focuses on the theoretical study and numerical simulation of optical metasurfaces for applications such as beam steering, flat lenses, holography, polarization control, and optical sensing. The student will investigate the interaction of electromagnetic waves with subwavelength nanostructures and evaluate the performance of different metasurface designs through numerical simulations. The project requires a strong background in electromagnetics and optics. Students should be willing to undertake programming in MATLAB or Python and learn relevant electromagnetic simulation software as part of the project.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 9,
+                "id": 8,
                 "title": "Photonic quantum computing architecture",
                 "summary": "This project aims to theoretically investigate and simulate a fault-tolerant architecture for continuous-variable measurement-based quantum computation. The student will need to learn the basics of photonic quantum information processing, including quantum computation, quantum optics, and operator algebra. The project involves Python programming and the use of quantum simulation libraries such as Strawberry Fields, QuTiP, and other related software tools.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 10,
-                "title": "Quantum algorithms",
-                "summary": "The project will require the student to study concepts in quantum computation, such as qubits, quantum gates, and basic quantum algorithms. Furthermore, he will need to focus on quantum machine learning algorithms and develop them for implementation in quantum simulations. He will have to use available software platforms such as Qiskit, PennyLane, or TensorFlow to implement the algorithms.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 11,
+                "id": 9,
                 "title": "Inverse Design of Photonic Components using Machine Learning Approach",
                 "summary": "Inverse design reverses the conventional workflow: instead of simulating a given geometry to find its response, it starts from target optical specifications and automatically discovers geometries that achieve them. Machine learning (ML) accelerates this by learning the mapping between device parameters and electromagnetic responses, then inverting it to propose candidates far faster than brute-force sweeps or adjoint-only loops. Common strategies include discriminative models (direct and tandem neural networks), generative models (VAEs, GANs, diffusion models), and reinforcement learning, often combined with physics-based optimizers like adjoint methods or topology optimization. Hybrid schemes use ML to initialize or regularize the search, while adjoint gradients refine fine features under fabrication constraints such as minimum width and spacing. Applications span ultra-compact couplers, low-loss bends, broadband splitters, grating couplers, metamaterial absorbers, and even dispersion-engineered structures for nonlinear processes like four-wave mixing in topological photonic crystals. Multi-fidelity ensembles further improve reliability by coupling low-cost surrogate models with high-fidelity simulations or experimental data, enabling robust, foundry-ready photonic components with reduced design cycles.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 12,
-                "title": "Design and Analysis of Photonic Devices for Optical Neural Networks",
-                "summary": "Optical neural networks (ONNs) map neural computation onto linear optical transforms and nonlinear activations, aiming for high-throughput, low-latency inference at the speed of light. Photonic devices here must implement programmable unitary/linear transforms (e.g., MZIs, microring meshes), efficient weighting, and low-power nonlinearities or optoelectronic activation stages. Design focuses on low-loss, phase-stable interferometric meshes with compact footprints, thermal/electro-optic tuning efficiency, and tolerance to fabrication variations. Ring-based weight banks and MZI lattices are analyzed for insertion loss, crosstalk, bandwidth, and power–accuracy trade-offs, often using circuit-level simulators coupled to electromagnetic solvers. For activations, strategies include semiconductor optical amplifiers, two-photon absorption, microheater-based thresholding, or hybrid optoelectronic loops with fast detectors and modulators. Analysis extends to system-level metrics: MACs per joule, latency, quantization noise, and trainability under realistic component imperfections. Recent work also explores inverse-designed building blocks (e.g., low-crosstalk couplers, compact bends) to shrink mesh area and improve scaling, alongside calibration and control algorithms that mitigate drift and maintain matrix accuracy over time.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 13,
+                "id": 10,
                 "title": "Design and Analysis of Optical Bio-Sensors",
                 "summary": "Optical bio-sensors transduce biochemical interactions into measurable optical signals using resonant, interferometric, or evanescent-field platforms. Key designs include microring and photonic crystal cavities, slot waveguides, plasmonic nanostructures, and grating-based sensors, all engineered to maximize sensitivity (nm/RIU or pm/ng·mL⁻¹), figure of merit, and limit of detection while maintaining robustness in fluidic environments. Design leverages strong field confinement and high Q-factors to enhance light–matter interaction with target analytes. Slot waveguides and photonic crystal defect cavities increase overlap with the sensing region; inverse design further tailors mode profiles and dispersion to boost sensitivity and relax fabrication tolerances. For specificity, surfaces are functionalized with receptors (antibodies, aptamers), and structures are optimized to minimize bulk refractive index drift while amplifying surface-bound signals. Analysis combines electromagnetic simulations with binding kinetics and noise models to predict dynamic range, response time, and detection limits. Experimental validation includes calibration against known concentrations, assessment of selectivity, and integration with on-chip references and microfluidics for stable, real-time readout suitable for point-of-care and lab-on-chip systems.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 14,
+                "id": 11,
                 "title": "Design and Simulation of CMOS-Compatible Thin-Film Lithium Niobate (TFLN) E-O Modulators for Quantum Key Distribution (QKD) Transmitter",
                 "summary": "The rapid advancement of quantum communication demands compact, high-speed, low-power, and CMOS-compatible electro-optic modulators for realizing scalable and secure Quantum Key Distribution (QKD) systems. Thin-Film Lithium Niobate (TFLN) has emerged as a promising platform owing to its excellent electro-optic properties, low optical loss, and ultra-high modulation bandwidth. In the proposed project our aim is to design and simulate a CMOS-compatible TFLN Mach–Zehnder electro-optic modulator by optimizing waveguide dimensions and traveling-wave electrodes to achieve high optical confinement, low insertion loss, low half-wave voltage (Vπ), high extinction ratio, and low energy per bit. CMOS-compatible fabrication constraints will also be investigated to facilitate large-scale photonic integration. The optimized modulator will be integrated into a QKD transmitter supporting time-bin and phase encoding, Decoy-State BB84 protocol. The design and performance will be analyzed using Ansys Lumerical MODE/DEVICE, COMSOL Multiphysics, CST Microwave Studio (or Ansys HFSS), and MATLAB/Python.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 15,
+                "id": 12,
                 "title": "Design and Performance Optimization of a CMOS-Compatible Silicon Electro Absorption Modulator for High-Speed Photonic Integrated Circuits",
                 "summary": "Electro-absorption modulator (EAMs) is key component of photonic integrated circuits which enables high-speed, low-power optical interconnect and quantum photonic systems. Developing CMOS compatible silicon EAMs facilitates seamless integration with electronic circuits, resulting in compact, scalable, and cost-effective optical transceivers. In this project aims to design and optimize a Si-CMOS-compatible electro-absorption modulator with low insertion loss, high extinction ratio, wide modulation bandwidth, and low driving voltage. The work will involve designing the modulator structure using photonic and semiconductor device simulation tools, followed by optimization of waveguide dimensions, doping profiles, and electrode configurations to enhance modulation efficiency and speed. Optical and electrical characteristics, including insertion loss, extinction ratio, bandwidth, and energy consumption, will be systematically analyzed. The optimized design will be compared with recently reported silicon modulators to assess its suitability for next-generation high speed optical interconnects.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 16,
-                "title": "CMOS–Photonic Co-Integrated Design of Photodetectors and Transimpedance Amplifiers for Very Low-Photon Optical Detection",
-                "summary": "Design a CMOS–photonic co-integrated photodetector and transimpedance amplifier (TIA) for detection of low mean photon or weakly coherent photon is a key enabling technology for quantum key distribution (QKD), LiDAR, and ultra-sensitive optical sensors. Co-integrating CMOS electronics with silicon photonic devices enables compact, low-power, high-speed, and scalable receiver front ends suitable for next-generation photonic integrated circuits. In this project, our aim is to design and optimize a CMOS–photonic co-integrated photodetector and transimpedance amplifier (TIA) with high sensitivity, very low dark count, wide bandwidth, and low power consumption. The project will begin with the design and simulation of a CMOS-compatible photodetector using photonic/device simulation tools, followed by extraction of a compact model for circuit-level integration. A low-noise CMOS transimpedance amplifier (TIA) will then be designed and co-simulated with the photodetector to optimize gain, bandwidth, noise, sensitivity, and power consumption. Finally, the integrated receiver will be evaluated for weak-photon detection performance under QKD, LiDAR, and ultra-sensitive optical sensing applications.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 17,
+                "id": 13,
                 "title": "Designing and Characterizing Achromatic Reconfigurable Metasurfaces:",
                 "summary": "This project focuses on the design and characterization of achromatic reconfigurable metasurfaces that can control the phase, amplitude, and polarization of light over a broad wavelength range. The goal is to reduce chromatic aberrations and enable tunable optical functionalities using programmable metasurface designs. The developed devices will find applications in imaging, beam steering, optical communication, sensing, LiDAR, and integrated photonics.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 18,
+                "id": 14,
                 "title": "Analog Computation Using Programmable Photonics:",
                 "summary": "This project focuses on the design and development of programmable photonic integrated circuits for analog computing. The research investigates different waveguide mesh architectures, such as rectangular, triangular, and hexagonal meshes, and develops algorithms to configure and reconfigure the hardware for implementing various analog signal-processing functions. The developed programmable photonic processors will have applications in analog computing, optical signal processing, microwave photonics, machine learning, and optical communication systems.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 19,
-                "title": "Optical Scatterometry for Nanoscale Wafer Inspection:",
-                "summary": "This project focuses on the development of an optical scatterometry system for nanoscale wafer inspection in semiconductor manufacturing. The research aims to develop fast, non-destructive, and high precision techniques for measuring critical dimensions, sidewall profiles, overlay errors, and material properties of nanoscale structures. The work includes the design of optical systems and the development of computational algorithms for accurate data analysis. The proposed system will support semiconductor process monitoring, quality control, defect inspection, and advanced nanofabrication.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 20,
+                "id": 15,
                 "title": "OAM Sensing Title: OAM-Multiplexed Multi-Analyte Electrochemical Sensing Platform",
                 "summary": "This project introduces a spatial-frequency-division multiplexing scheme encoding multiple electrochemical reaction channels onto orthogonal Orbital Angular Momentum (OAM) modes of a composite vortex beam. Segmented diffractive elements imprint distinct topological charge signatures correlated to specific analyte redox activities, collapsing multi-detector setups into a single optical beam readout. The student will simulate Laguerre-Gaussian beam propagation, model perturbed mode superpositions, and train a Convolutional Neural Network (CNN) to map power redistribution back to individual analyte concentrations.",
                 "prerequisites": "Strong foundation in physical optics, electromagnetic theory, and linear algebra. Proficiency in Python (PyTorch/NumPy) for deep learning classification and mode-decomposition modeling is required. Prior exposure to optical wave propagation or diffractive optics, along with basic familiarity with Ansys Lumerical (FDTD/RCWA) for modeling diffractive phase structures, is essential."
             },
             {
-                "id": 21,
+                "id": 16,
                 "title": "Diffractive Optical Neural Network Title: OAM-Encoded Diffractive Optical Neural Network for All-Optical Sensing Readout",
                 "summary": "This project adapts Diffractive Deep Neural Networks (D^2NN) to operate directly on Orbital Angular Momentum (OAM) mode bases derived from structured light sensing. Instead of using digital CNNs, cameras, and GPUs to decode mode signatures, this passive, physics-computed diffractive network classifies perturbed OAM mode profiles all-optically using trainable phase masks before light reaches a detector. The student will implement the forward wave-propagation model using the Angular Spectrum Method, optimize diffractive phase-layer weights via backpropagation, and conduct tolerance checks against discrete fabrication limits.",
                 "prerequisites": "Advanced knowledge of Fourier optics, wave optics, and partial differential equations. Proficiency in Python (PyTorch) for building custom differentiable physical layers and backpropagation pipelines. Familiarity with Google Colab/GPU environments and basic exposure to Ansys Lumerical for verifying phase-mask pixelation effects is required."
             },
             {
-                "id": 22,
-                "title": "Inverse design using neural networks Title: Neural-Network-Driven Free-Form Inverse Design of a High-Q Off-Axis Diffracted Beam",
-                "summary": "Rather than relying on computationally expensive point-by-point adjoint topology optimization, this project develops a generative deep learning pipeline (Conditional GAN or Diffusion Model) for the instant inverse design of free-form metasurface unit cells. The objective is to maximize the resonance Quality factor (Q-factor) in a non-zero diffraction order at specified target angles. Once trained, the model rapidly outputs optimal nanostructures across varying target wavelengths. The student will construct automated simulation datasets, train generative models, and benchmark performance against classical topology optimization baselines.",
-                "prerequisites": "Background in nanophotonics, metasurfaces, and numerical electromagnetics. Strong Python programming skills (PyTorch/TensorFlow) for generative neural networks and data processing. Hands-on experience or coursework in Ansys Lumerical (FDTD/RCWA scripting) for automated dataset generation is required."
-            },
-            {
-                "id": 23,
+                "id": 17,
                 "title": "Design and Development of an Electro-Optic Transmitter for Industrial and Environmental Parameters",
                 "summary": "For the measurement and transmission of industrial parameters such as flow rate, pressure, temperature, etc., an optical transmitting system has a great impact, especially for long-distance transmission through inflammable and hazardous areas. The design of a complete optical system, i.e., both the sensing and transmitting units of optical type, increases the system's cost to a very high level. A combination of a primary electrical-type sensor and a Mach-Zehnder Interferometer (MZI)-based transmitter will be designed. The approach will be capable of measuring parameters such as temperature, humidity, flow rate, or pressure, and transmitting the readings to a remote location via electro-optic modulation in the MZI. The proposed system will be a hybrid type and consists of two sections. The first part is the electrical type, which is responsible for detecting and sensing the measured parameters in the electrical domain (primary), and the second part is responsible for transmitting the measured information in the optical domain (secondary).",
                 "prerequisites": "N/A"
             },
             {
-                "id": 24,
-                "title": ": Analysis and Performance Optimization of RF Injection Locked Optoelectronic Oscillator for Stable Microwave Signal Generation",
+                "id": 18,
+                "title": "Design and Fabrication pressure measurement unit using Modified Piezoelectric Sensor and Opto-electric transmitter",
+                "summary": "This project aims to develop a highly sensitive and selective Modified Piezoelectric Sensor for the measurement of pressure for industrial applications.  A modified piezo-sensitive technique will be developed to measure the pressure. The sensitivity of the piezo-based sensing technique is very high but the limitation is that it is not suitable for the variables that are static in nature.  This modified method is suitable for the measurement of the static variables. Pressure measurement will be done by this technique and for transmitting the signal the electro optic transmitter will be used. The transmission of electrical signals may cause safety concern in inflammable and hazardous areas in industry whereas an optical transmitting system has a great impact, especially for long-distance transmission. The design of a complete optical system, i.e., both the sensing and transmitting units of optical type, increases the system’s cost to a very high level. Thus a piezoelectric sensor will be designed for sensing and an optical system will be designed for transmitting the measured information to the control room. ",
+                "prerequisites": "N/A"
+            },
+            {
+                "id": 19,
+                "title": "Analysis and Performance Optimization of RF Injection Locked Optoelectronic Oscillator for Stable Microwave Signal Generation",
                 "summary": "Optoelectronic Oscillators (OEOs) can generate microwave signals with ultra-low phase-noise, which are useful for radar, wireless communication, microwave photonics and sensing systems. However, frequency instability and numerous oscillation modes are commonly observed in conventional fiber-delay OEOs owing to the lengthy cavity delay. The proposed research is to study the performance of an RF injection locked optoelectronic oscillator and to study the influence of injection locking on frequency stability and spectrum purity. The proposed effort is modelling and simulation of fiber delay OEO utilizing Lumerical, Opti-System and MATLAB. We will characterize key performance metrics including the oscillation frequency, Side-Mode Suppression Ratio (SMSR), phase noise, locking range and output RF power under free-running and injection-locked situations. The effect of fiber delay length and injection signal parameters on the performance of the oscillator will be also explored. The project is planned to provide increased frequency stability, reduced phase noise and enhanced SMSR that will help advance high-performance microwave photonic oscillators for next generation communication and sensing applications.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 25,
+                "id": 20,
                 "title": ": Development of Metal-Coated Long Period Fiber Bragg Grating (LPFBG) Sensor for Enhanced Chemical and Refractive Index Sensing",
                 "summary": "The Long Period Fibre Bragg Grating (LPFBG) is a promising platform for optical fibre sensing because of its high sensitivity to the changes in the surrounding refractive index and chemical environment. The aim of this project is to develop and study a metal-coated LPFBG sensor for enhanced sensing performance. A thin metallic layer (e.g. gold, silver or other functional metal) will be deposited on the LPFBG surface to enhance the interaction between the guided optical modes and surrounding medium. The student will investigate the influence of parameters of metal coating on shift of resonance wavelength, sensitivity and sensor performance. The project will comprise numerical analysis, sensor fabrication/modification, optical characterisation and experimental evaluation for chemical and refractive index sensing applications. The developed sensor is a compact and sensitive platform for applications in environmental monitoring, chemical detection and biomedical sensing.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 26,
-                "title": ": Fabrication and Characterization of Dip-Coated Functionalized Fiber Bragg Grating (FBG) Sensor for Chemical Sensing Applications",
-                "summary": "Fibre Bragg Grating (FBG) sensors are widely used for temperature, strain and pressure monitoring, but their direct application in chemical sensing is limited due to the weak interaction between the optical field and surrounding analytes. A functionalised FBG sensor is developed in this project by using a dip-coating method. The FBG sensing area will be coated with suitable functional materials such as graphene-based nanocomposites, polymers or metal oxide nanomaterials to enhance analyte interaction and sensing sensitivity. The student will investigate the effect of coating parameters on sensor response and evaluate performance characteristics including sensitivity, selectivity, response time and stability. This project will involve sensor fabrication, experimental setups development, analysis of wavelength shift and performance optimisation. Proposed work is to develop an efficient optical fibre sensor for chemical detection, food quality monitoring, environmental analysis and biomedical sensing applications.",
-                "prerequisites": "N/A"
-            },
-            {
-                "id": 27,
+                "id": 21,
                 "title": "Design and Analysis of 2D Material-Based Silicon Photonic Devices for Optical Modulation",
                 "summary": "This research focuses on the design and analysis of silicon photonic optical modulators integrated with two-dimensional (2D) materials. The objective is to enhance modulation efficiency, increase bandwidth, and reduce power consumption for next-generation optical communication systems. The research involves designing waveguide-based modulators, optimizing device geometry, and evaluating key performance parameters using photonic simulation tools.",
                 "prerequisites": "N/A"
             },
             {
-                "id": 28,
+                "id": 22,
                 "title": "Design and Analysis of Hybrid Silicon Photonic Devices for Near-Infrared hotodetection",
                 "summary": "This research aims to design and analyze hybrid silicon photonic photodetectors for efficient detection of near-infrared (NIR) light used in optical communication. Since silicon exhibits limited optical absorption in the NIR region, hybrid integration with material is employed to improve responsivity and detection efficiency. The study includes the design and optimization of waveguide-integrated photodetectors and the evaluation of performance parameters  using  simulation techniques.",
                 "prerequisites": "N/A"
-            },
-            {
-                "id": 29,
-                "title": "Design and Analysis of Nanophotonic Devices for Gas Sensing Applications",
-                "summary": "This  research focuses on the design and analysis of nanophotonic devices for highly sensitive gas sensing applications. The study explores nanophotonic structures to enhance light–matter interaction and improve sensor performance. The  devices will be designed to detect hazardous gases, commonly encountered in industrial and mining environments.",
-                "prerequisites": "N/A"
             }
+            
         ];
 
         // How many characters to show before cutting off the text
