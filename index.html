@@ -285,13 +285,13 @@ footer {
 <section class="form-section" id="preferences">
     <div class="form-container">
         <h3>Submit Your Project Preferences</h3>
+        <!-- UPDATED: Removed mention of the 6-digit code -->
         <p>
             Enter your <strong>Institute Email</strong> and <strong>Admission Number</strong>. 
-            You will need to verify your email with a 6-digit code. The <strong>same email will be required if you need to resubmit or modify your preferences later</strong>.
+            The <strong>same email will be required if you need to resubmit or modify your preferences later</strong>.
         </p>
         
         <form id="preferenceForm">
-            <!-- Hidden action field so Apps Script knows which job to do -->
             <input type="hidden" name="action" id="formAction" value="submitForm">
 
             <div class="input-group">
@@ -299,32 +299,23 @@ footer {
                 <input type="text" id="studentName" name="name" required placeholder="e.g., Rahul Kumar">
             </div>
             
-            <!-- Email and OTP Section -->
+            <!-- UPDATED: Removed the Get OTP button and message paragraph -->
             <div class="input-group">
                 <label for="studentEmail">Institute Email ID</label>
-                <input type="email" id="studentEmail" name="email" required placeholder="e.g., student@iitism.ac.in" style="margin-bottom: 10px;">
-                
-                <button type="button" class="btn" id="sendOtpBtn" style="width: 100%; margin-top: 5px;">Get Code</button>
-                <p id="otpMsg" style="font-size: 13px; margin-top: 8px; font-weight: 500;"></p>
+                <input type="email" id="studentEmail" name="email" required placeholder="e.g., student@iitism.ac.in">
+            </div>
+
+            <!-- UPDATED: Removed the entire Verification Code input group -->
+
+            <div class="input-group">
+                <label for="admissionNo">Admission Number</label>
+                <input type="text" id="admissionNo" name="admissionNo" required placeholder="e.g., 23JE0001">
             </div>
 
             <div class="input-group">
-                <label for="studentOtp">Verification Code</label>
-                <input type="text" id="studentOtp" name="otp" required pattern="\d{6}" title="Please enter the 6-digit code sent to your email" placeholder="Enter the 6-digit code">
+                <label for="gateScore">GATE Score</label>
+                <input type="number" id="gateScore" name="gateScore" required placeholder="e.g., 750" min="0" max="1000">
             </div>
-
-            
-
-            <div class="input-group">
-    <label for="admissionNo">Admission Number</label>
-    <input type="text" id="admissionNo" name="admissionNo" required placeholder="e.g., 23JE0001">
-</div>
-
-<!-- MUST HAVE name="gateScore" -->
-<div class="input-group">
-    <label for="gateScore">GATE Score</label>
-    <input type="number" id="gateScore" name="gateScore" required placeholder="e.g., 750" min="0" max="1000">
-</div>
 
             <div class="input-group">
                 <label for="domainSelect">Select Your Domain</label>
@@ -363,15 +354,12 @@ footer {
         'OCIP': 22
     };
 
-    // Listen for when the student changes the domain dropdown
     domainSelect.addEventListener('change', function() {
         const selectedDomain = this.value;
         const numberOfPrefs = domainCounts[selectedDomain];
         
-        // Clear out any old fields
         dynamicPrefs.innerHTML = ''; 
 
-        // Generate the exact number of required inputs
         if(numberOfPrefs) {
             let htmlString = '<p style="margin-bottom:15px; color:var(--ism-blue); font-weight:600;">Please enter the Project Serial Number for your preferences below:</p>';
             
@@ -383,71 +371,31 @@ footer {
                     </div>
                 `;
             }
-            // Inject into the HTML
             dynamicPrefs.innerHTML = htmlString;
         }
     });
 
-    // --- 2. Google Sheets Submission Logic & Configuration ---
+    // --- 2. Google Sheets Submission Logic ---
     const form = document.getElementById('preferenceForm');
     const msg = document.getElementById('formMessage');
     const btn = document.getElementById('submitBtn');
 
-    // !!! IMPORTANT: Make sure this is the URL of your NEW OTP Apps Script deployment !!!
+    // Make sure this is your valid Web App URL
     const scriptURL = 'https://script.google.com/macros/s/AKfycby2GUsXyJQIW3vJsxhzcLA6apWOAwUb-cE6viPYoxV1kMWLW5HDA6yBL23c9wHmQ5V96A/exec'; 
 
-    // --- 3. OTP Email Logic ---
-    const otpBtn = document.getElementById('sendOtpBtn');
-    const otpMsg = document.getElementById('otpMsg');
-    const emailInput = document.getElementById('studentEmail');
-
-    otpBtn.addEventListener('click', () => {
-        const email = emailInput.value.trim();
-        
-        if(!email) {
-            otpMsg.innerText = "Please enter your institute email first.";
-            otpMsg.style.color = "#c62828"; // Red
-            return;
-        }
-        
-        // Optional: Ensure it's an IIT ISM email address
-        if(!email.toLowerCase().endsWith("@iitism.ac.in")) {
-            otpMsg.innerText = "Please use your valid @iitism.ac.in email address.";
-            otpMsg.style.color = "#c62828";
-            return;
-        }
-        
-        otpBtn.innerText = "Sending...";
-        otpMsg.innerText = "";
-        
-        // Create a special payload just for sending the email
-        const otpFormData = new FormData();
-        otpFormData.append('action', 'sendOTP');
-        otpFormData.append('email', email);
-
-        fetch(scriptURL, { method: 'POST', body: otpFormData })
-            .then(response => response.text())
-            .then(text => {
-                if(text === "OTP_SENT") {
-                    otpMsg.innerText = "Code sent! Check your inbox (and spam folder).";
-                    otpMsg.style.color = "#2e7d32"; // Green
-                    otpBtn.innerText = "Code Sent";
-                } else {
-                    otpMsg.innerText = text;
-                    otpMsg.style.color = "#c62828";
-                    otpBtn.innerText = "Get Code";
-                }
-            })
-            .catch(error => {
-                otpMsg.innerText = "Network error. Try again.";
-                otpMsg.style.color = "#c62828";
-                otpBtn.innerText = "Get Code";
-            });
-    });
-
-    // --- 4. Final Form Submission Logic ---
+    // --- 3. Final Form Submission Logic (UPDATED) ---
     form.addEventListener('submit', e => {
         e.preventDefault();
+        
+        // Optional Email Validation logic moved here from the deleted OTP block
+        const email = document.getElementById('studentEmail').value.trim();
+        if(!email.toLowerCase().endsWith("@iitism.ac.in")) {
+            msg.innerText = "Please use your valid @iitism.ac.in email address.";
+            msg.className = "error-msg";
+            msg.style.display = "block";
+            return;
+        }
+
         btn.innerText = "Submitting...";
         msg.style.display = "none";
 
@@ -464,8 +412,6 @@ footer {
                     msg.className = "success-msg";
                     form.reset();
                     dynamicPrefs.innerHTML = ''; // Clear dynamic fields after success
-                    otpBtn.innerText = "Get Code";
-                    otpMsg.innerText = "";
                 }
                 msg.style.display = "block";
                 btn.innerText = "Submit Preferences";
